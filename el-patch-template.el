@@ -667,6 +667,7 @@ the definition of the elisp object, and should not match a
 subform in another template. The checks along with the actual
 matching are done when the functions `el-patch-eval-template' or
 `el-patch-insert-template' are called."
+  (declare (indent defun))
   `(el-patch--define-template (quote ,type-name)
                               (quote ,templates)))
 
@@ -679,6 +680,7 @@ The meaning of TYPE-NAME and TEMPLATES are the same as
 macro-expand the resolved template after defining the template.
 If called in runtime, evaluate the resolved template instead and,
 if `el-patch-warn-on-eval-template' is non-nil, print a warning."
+  (declare (indent defun))
   (if (bound-and-true-p byte-compile-current-file)
       (let* ((resolved-name
               (el-patch--define-template type-name templates))
